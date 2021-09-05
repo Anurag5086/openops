@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import './Box.css'
 
 interface BoxColor{
     color: String
@@ -10,8 +11,6 @@ interface BoxProps{
 }
 function Box({boxID, randomColor}:BoxProps) {
     const [boxColor, setBoxColor] = useState<BoxColor>();
-    const widthOfBox = Math.floor(window.screen.width/26);     //Each row will have 25 Blocks
-    const heightOfBox = Math.floor(window.screen.height/15);
 
     useEffect(() => {
         var c = randomColor();
@@ -24,7 +23,7 @@ function Box({boxID, randomColor}:BoxProps) {
     }
 
     return (
-        <div id={boxID} onClick={() => {boxClicked()}} className="mainBox" style={{backgroundColor: `${boxColor?.color}` , height: heightOfBox, width: widthOfBox}}></div>
+        <div id={boxID} onClick={() => {boxClicked()}} className="mainBox" style={{backgroundColor: `${boxColor?.color}` , height: '60px', width: '60px'}}></div>
     )
 }
 
